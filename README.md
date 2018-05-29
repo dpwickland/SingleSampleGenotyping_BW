@@ -1,7 +1,7 @@
 # SingleSampleGenotyping_BW
 
 ## Introduction
-These two scripts for the Blue Waters supercomputer conduct single-sample genotyping on GVCF files (**GenotypeGVCFs_SingleSample_BW.sh**) or on realigned, recalibrated bam files (**bcftools_SingleSample_BW.sh**). In contrast to joint genotyping, variant calling and genotyping is done separately on each sample. Each output VCF is merged into a multi-sample VCF containing the separately called genotypes for a given cohort.  
+These scripts for the Blue Waters supercomputer use two strategies to conduct single-sample genotyping.  **GenotypeGVCFs_SingleSample_BW.sh** runs *GATK GenotypeGVCFs* on input GVCF files, while **bcftools_SingleSample_BW.sh** runs *bcftools mpileup* and *bcftools call* on realigned, recalibrated bam files. In contrast to joint genotyping, variant calling and genotyping is done separately on each sample. Each output VCF is merged into a multi-sample VCF containing the separately called genotypes for a given cohort.  
 
 Most researchers recommend the joint genotyping approach because its use of population-wide information increases sensitivity (particularly for low-frequency variants) and accuracy; however, single-sample genotyping offers a useful comparison because it may capture some variants (especially those unique to a single sample) discarded by the joint genotyping method (see https://gatkforums.broadinstitute.org/gatk/discussion/4150/should-i-analyze-my-samples-alone-or-together).
 
