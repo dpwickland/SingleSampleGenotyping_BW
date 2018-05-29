@@ -15,7 +15,7 @@ For example:
 *bash GenotypeGVCFs_SingleSample_BW.sh hg19 /u/sciteam/wickland/ADSP_VarCallResults/ADSP_SingleSampleVC/hg19/BWA/GATK_HC/ADSP_Batch1.BWA_GATK_defaults /u/sciteam/wickland/ADSP_VarCallResults/ADSP_SingleSampleGenotyping/hg19/BWA/GATK-HC_defaults/Batch1*
 
 ## bcftools_SingleSample_BW.sh
-This script uses the *mpileup* and *call* commands from bcftools to call variants on and genotype realigned, recalibrated bam files. **bcftools mpileup** is used to generate a pileup of read bases from which **bcftools call** identifies variants. By default all sites are output, allowing distinction between missing data and homozygous reference genotypes. As with the GenotypeGVCFs analog of this script, the output is piped to an *awk* command that removes any sites not covered by at least one read, and a compressed VCF is written to disk. Ten samples (i.e. ten commands) are placed on each node.
+This script uses the *mpileup* and *call* commands from bcftools to call variants on and genotype realigned, recalibrated bam files. *bcftools mpileup* is used to generate a pileup of read bases from which *bcftools call* identifies variants. By default all sites are output, allowing distinction between missing data and homozygous reference genotypes. As with the GenotypeGVCFs analog of this script, the output is piped to an *awk* command that removes any sites not covered by at least one read, and a compressed VCF is written to disk. Ten samples (i.e. ten commands) are placed on each node.
 
 The syntax to run the script is  
 *bash GenotypeGVCFs_SingleSample_BW.sh \<reference assembly to use: hg19 or hg38> \<path to Batch directory containing realigned, recalibrated bams> \<output directory; will be created if doesn't exist>*
